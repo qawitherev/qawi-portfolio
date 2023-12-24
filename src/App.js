@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { Portfolio } from "./pages/Portfolio";
 import { createContext, useState, useEffect } from "react";

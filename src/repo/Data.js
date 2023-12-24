@@ -33,7 +33,7 @@ export const getMobileStack = (index) => {
         alt: "swift-logo",
         src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUHbR_02Y1hb45WaOafcClJ7yx2m-yYjxwtdMXDau9qw&s",
         description:
-          "Swift is a programming language developed by Apple for iOS, macOS, watchOS, tvOS, and other Apple platforms. It was introduced in 2014 as a replacement for Objective-C and is designed to be modern, safe, and developer-friendly.",
+          "Swift is a programming language developed by Apple for iOS, macOS, watchOS, tvOS, and other Apple platforms.",
       };
     case 2:
       return {
@@ -80,7 +80,7 @@ export const getWebInfo = (index) => {
         alt: "tailwind-logo",
         src: "https://play.tailwindcss.com/social-square.jpg",
         description:
-          "Tailwind CSS is a utility-first CSS framework that provides a set of low-level utility classes to build designs directly in your markup. Unlike traditional CSS frameworks that come with predefined components and styles, Tailwind encourages a more flexible and customizable approach.",
+          "Tailwind CSS is a utility-first CSS framework that provides a set of low-level utility classes to build designs directly in your markup. Unlike traditional CSS frameworks that come with predefined components and styles.",
       };
     case 2:
       return {

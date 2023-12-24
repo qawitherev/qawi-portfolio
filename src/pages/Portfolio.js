@@ -230,7 +230,7 @@ function CatchPhraseSubBento() {
       <div className="relative h-full">
         {/* todo fix the background not filling when in <md */}
         <img
-          className="absolute object-cover h-full w-full"
+          className="absolute object-cover h-full w-full filter brightness-50"
           alt="catchphrase-bg"
           src="https://wallpapers.com/images/hd/minimalist-best-laptop-for-coding-glt27d3cmfygaipy.jpg"
         />
@@ -291,7 +291,127 @@ function OutsideSkillSubBento() {
 function DescriptionSection() {
   return (
     <>
-      <h1>DescriptionSection</h1>
+      <MobileStack />
+      <WebStack />
+      <CompanyWork />
+      <ProjectNumber />
+    </>
+  );
+}
+
+function MobileStack() {
+  return (
+    <>
+      <div className="flex flex-col justify-start px-5 mb-10">
+        <h1
+          className=" px-2
+                  text-3xl font-sans text-orange-500 mb-2"
+        >
+          I am quite "mobile" with these technologies
+        </h1>
+
+        <div className=" grid sm:grid-cols-1 md:grid-cols-2 gap-3">
+          {[...Array(5)].map((_, i) => (
+            <div key={i} className=" flex flex-col bg-white rounded-xl p-5">
+              <h1 className="font-bold">{getMobileStack(i).name}</h1>
+              <div className="py-1" />
+              <div className=" flex justify-center">
+                <img
+                  className=" rounded-lg h-10 w-10"
+                  alt={getMobileStack(i).alt}
+                  src={getMobileStack(i).src}
+                />
+                <div className=" px-2" />
+                <h1 className=" flex-grow text-justify font-ibm-sans">
+                  {getMobileStack(i).description}
+                </h1>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+}
+
+function WebStack() {
+  return (
+    <>
+      <div className=" flex flex-col justify-start px-5 mb-10">
+        <h1 className="px-2 text-3xl font-sans text-amber-500 mb-2">
+          I develop websites with these
+        </h1>
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-3">
+          {[...Array(4)].map((_, i) => (
+            <div key={i} className="flex flex-col bg-white rounded-xl p-5">
+              <h1 className="font-bold">{getWebInfo(i).name}</h1>
+              <div className="py-1" />
+              <div className=" flex justify-center">
+                <img
+                  className=" rounded-lg h-10 w-10"
+                  alt={getWebInfo(i).alt}
+                  src={getWebInfo(i).src}
+                />
+                <div className=" px-2" />
+                <h1 className=" flex-grow text-justify font-ibm-sans">
+                  {getWebInfo(i).description}
+                </h1>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+}
+
+function CompanyWork() {
+  return (
+    <>
+      <div className="mb-10">
+        <h1 className="text-adt-green px-7 text-3xl mb-2">
+          Companies I proudly serve for
+        </h1>
+        <div className="grid auto-rows-min-[150px] sm:grid-cols-1 md:grid-cols-2 gap-3 px-5">
+          {[...Array(2)].map((_, i) => (
+            <div
+              key={i}
+              onClick={() => window.open(companyList[i].url, "blank")}
+              className=" transition cursor-pointer hover:scale-95 rounded-xl bg-white col-span-1 row-span-1 flex flex-col items-center justify-center h-full p-5"
+            >
+              <img
+                className="w-1/2"
+                alt={companyList[i].imageAlt}
+                src={companyList[i].imageSrc}
+              />
+              <div className="py-2" />
+              <h1 className=" font-ibm-sans">{companyList[i].description}</h1>
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+}
+
+function ProjectNumber() {
+  return (
+    <>
+      <div className="flex flex-col justify-start px-5 mb-10">
+        <h1 className=" mb-2 px-2 text-3xl">Projects Done</h1>
+        <div className="grid max-sm:grid-cols-1 md:grid-cols-2 gap-4">
+          {[...Array(projectList.length)].map((_, i) => (
+            <div
+              key={i}
+              className="bg-white p-5 rounded-lg flex flex-col justify-center"
+            >
+              <h1 className="mb-2 font-ibm-sans font-bold">{projectList[i].name}</h1>
+              <h1 className="font-ibm-sans">{projectList[i].description}</h1>
+              <h1 className="font-ibm-sans">{projectList[i].company}</h1>
+            </div>
+          ))}
+        </div>
+      </div>
     </>
   );
 }
