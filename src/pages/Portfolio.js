@@ -1,6 +1,13 @@
 import React, { useContext } from "react";
 import { WindowSizeContext } from "../App";
-import { companyList, getMobileStack, getWebInfo, projectList, outsideSkillList, getSocialSite } from "../repo/Data";
+import {
+  companyList,
+  getMobileStack,
+  getWebInfo,
+  projectList,
+  outsideSkillList,
+  getSocialSite,
+} from "../repo/Data";
 
 export function Portfolio() {
   return (
@@ -33,7 +40,7 @@ export function Portfolio() {
 function SubBento(props) {
   const data = props.data;
   const { windowSize } = useContext(WindowSizeContext);
-  if (windowSize === "max-sm") {
+  if (windowSize === "max-sm" || windowSize === "sm") {
     switch (data) {
       case 0:
         return (
