@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import { WindowSizeContext } from "../App";
 import {
   companyList,
@@ -10,6 +10,35 @@ import {
 } from "../repo/Data";
 
 export function Portfolio() {
+  const { windowSize } = useContext(WindowSizeContext);
+  const isSmallScreen = windowSize === "max-sm" || windowSize === "sm";
+  const componentRefs = [
+    useRef(null),
+    useRef(null),
+    useRef(null),
+    useRef(null),
+    useRef(null),
+    useRef(null),
+    useRef(null),
+  ];
+
+  const scrollToComponent = (index) => {
+    if (componentRefs[index].current && index !== 3 && index !== 4) {
+      window.scrollTo({
+        top: componentRefs[index].current.offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const descriptionComponents = [
+    { component: <MobileStack />, refIndex: [1, 2] },
+    { component: <WebStack />, refIndex: [2, 5] },
+    { component: <CompanyWork />, refIndex: [3, 0] },
+    { component: <ProjectNumber />, refIndex: [4, 1] },
+    { component: <OutsideSkill />, refIndex: [5, 6] },
+  ];
+
   return (
     <>
       <div className="flex flex-col bg-gray-100">
@@ -17,6 +46,7 @@ export function Portfolio() {
           {[...Array(7)].map((_, i) => (
             <div
               key={i}
+              onClick={() => scrollToComponent(i)}
               className={`rounded-xl bg-white overflow-clip
                 ${i === 0 ? "md:col-span-3 md:row-span-1" : ""}
               ${i === 1 ? "md:col-span-1 md:row-span-1" : ""}
@@ -31,7 +61,30 @@ export function Portfolio() {
             </div>
           ))}
         </div>
-        <DescriptionSection />
+        <div className="mt-10" />
+        {/* <div ref={componentRefs[isSmallScreen ? 1 : 2]}>
+            <MobileStack />
+        </div>
+        <div ref={componentRefs[isSmallScreen ? 2 : 5]}>
+            <WebStack />
+        </div>
+        <div ref={componentRefs[isSmallScreen ? 3 : 0]}>
+            <CompanyWork />
+        </div>
+        <div ref={componentRefs[isSmallScreen ? 4 : 1]}>
+            <ProjectNumber />
+        </div>
+        <div ref={componentRefs[isSmallScreen ? 5 : 6]}>
+            <OutsideSkill />
+        </div> */}
+        {descriptionComponents.map(({ component, refIndex }, index) => (
+          <div
+            key={index}
+            ref={componentRefs[isSmallScreen ? refIndex[0] : refIndex[1]]}
+          >
+            {component}
+          </div>
+        ))}
       </div>
     </>
   );
@@ -288,17 +341,6 @@ function OutsideSkillSubBento() {
   );
 }
 
-function DescriptionSection() {
-  return (
-    <>
-      <MobileStack />
-      <WebStack />
-      <CompanyWork />
-      <ProjectNumber />
-    </>
-  );
-}
-
 function MobileStack() {
   return (
     <>
@@ -405,13 +447,23 @@ function ProjectNumber() {
               key={i}
               className="bg-white p-5 rounded-lg flex flex-col justify-center"
             >
-              <h1 className="mb-2 font-ibm-sans font-bold">{projectList[i].name}</h1>
+              <h1 className="mb-2 font-ibm-sans font-bold">
+                {projectList[i].name}
+              </h1>
               <h1 className="font-ibm-sans">{projectList[i].description}</h1>
               <h1 className="font-ibm-sans">{projectList[i].company}</h1>
             </div>
           ))}
         </div>
       </div>
+    </>
+  );
+}
+
+function OutsideSkill() {
+  return (
+    <>
+      <h1>Outside skill</h1>
     </>
   );
 }
