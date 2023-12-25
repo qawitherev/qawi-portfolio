@@ -480,9 +480,10 @@ function OutsideSkill() {
 function DownloadResume() {
   return (
     <>
-      <a href="/AbdulQawi_Resume_Dec2023.pdf" download>
+      <a href="%PUBLIC_URL%/AbdulQawi_Resume_Dec2023.pdf" download>
         <button>Download resume</button>
       </a>
+      <h1>This is using %public_url%</h1>
     </>
   );
 }
