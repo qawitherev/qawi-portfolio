@@ -138,42 +138,45 @@ export const projectList = [
 export const outsideSkillList = [
   {
     name: "Azure DevOps",
-    description: "Lorem ipsum Azure DevOps",
+    description:
+      "Azure DevOps is a Microsoft platform supporting the entire software development lifecycle. It integrates tools for version control, build automation, continuous integration, release management, and collaboration, facilitating efficient and streamlined development processes in the cloud.",
     imgAlt: "devops-logo",
     imgSrc:
       "https://pbs.twimg.com/profile_images/1145617831905681408/XNKktHjN_400x400.png",
   },
   {
     name: "Postman API",
-    description: "Lorem ipsum Postman API",
+    description:
+      "Postman API simplifies and streamlines API development, testing, and collaboration. It offers an intuitive interface for designing, testing, and automating APIs, enhancing efficiency in building and maintaining robust and scalable API ecosystems.",
     imgAlt: "postman-logo",
     imgSrc:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ9DoWEX_QalwNQhW-FhoZbokljsNKK3gg_S49EqstiEH1hdMYBVRaiNW-JNq8y3JW1ko&usqp=CAU",
   },
   {
     name: "SQL Workbench",
-    description: "Lorerm ipsum SQL Workbench",
+    description:
+      "SQL Workbench is a powerful, cross-platform SQL client tool. It provides a user-friendly interface for database management, query execution, and schema exploration. Supporting various database systems, it enables developers and analysts to interact with databases efficiently.",
     imgAlt: "sql-workbench-logo",
     imgSrc:
       "https://pbs.twimg.com/profile_images/621577553376100352/lvR3kClO_400x400.png",
   },
   {
     name: "Xcode",
-    description: "lorem ipsum Xcode",
+    description: "Xcode is Apple's integrated development environment (IDE) for macOS and iOS app development. It offers a comprehensive set of tools, including code editing, debugging, interface design, and testing. Developers use Xcode to create high-quality applications for Apple's ecosystem.",
     imgAlt: "xcode-logo",
     imgSrc:
       "https://w7.pngwing.com/pngs/505/718/png-transparent-xcode-macos-bigsur-icon-thumbnail.png",
   },
   {
     name: "Figma",
-    description: "lorem ipsum Figma",
+    description: "Figma is a cloud-based design collaboration platform. It enables teams to create, prototype, and collaborate on user interfaces and user experiences in real-time. Figma supports seamless design workflows, version control, and interactive prototyping, fostering efficient collaboration among designers and stakeholders.",
     imgAlt: "figma-logo",
     imgSrc:
       "https://s3-alpha.figma.com/hub/file/3152337111/0e0f44e4-8de2-49c9-b8f0-406ece8fd1b6-cover.png",
   },
   {
     name: "Matter",
-    description: "lorem ipsum Matter open smart home protocol",
+    description: "Matter is a global, open-source standard that aims to simplify the smart home ecosystem by allowing internet-connected devices from different manufacturers to simply and securely communicate.",
     imgAlt: "matter-logo",
     imgSrc:
       "https://seeklogo.com/images/M/matter-icon-logo-105B56921E-seeklogo.com.png",

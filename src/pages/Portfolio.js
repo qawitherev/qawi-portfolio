@@ -62,21 +62,6 @@ export function Portfolio() {
           ))}
         </div>
         <div className="mt-10" />
-        {/* <div ref={componentRefs[isSmallScreen ? 1 : 2]}>
-            <MobileStack />
-        </div>
-        <div ref={componentRefs[isSmallScreen ? 2 : 5]}>
-            <WebStack />
-        </div>
-        <div ref={componentRefs[isSmallScreen ? 3 : 0]}>
-            <CompanyWork />
-        </div>
-        <div ref={componentRefs[isSmallScreen ? 4 : 1]}>
-            <ProjectNumber />
-        </div>
-        <div ref={componentRefs[isSmallScreen ? 5 : 6]}>
-            <OutsideSkill />
-        </div> */}
         {descriptionComponents.map(({ component, refIndex }, index) => (
           <div
             key={index}
@@ -463,7 +448,28 @@ function ProjectNumber() {
 function OutsideSkill() {
   return (
     <>
-      <h1>Outside skill</h1>
+      <div className="flex flex-col justify-start px-5 mb-10">
+        <h1 className="mb-2 px-2 text-3xl">
+          Some technologies that I've worked with before
+        </h1>
+        <div className="grid max-sm:grid-cols-1 md:grid-cols-2 gap-4">
+          {[...Array(outsideSkillList.length)].map((_, i) => (
+            <div key={i} className="flex flex-col bg-white rounded-lg p-5">
+              <h1 className="font-bold">{outsideSkillList[i].name}</h1>
+              <div className="py-1" />
+              <div className="flex flex-row justify-center">
+                <img
+                  className="rounded-lg h-10 w-10"
+                  alt={outsideSkillList[i].imgAlt}
+                  src={outsideSkillList[i].imgSrc}
+                />
+                <div className="px-2" />
+                <h1 className="flex-grow text-justify font-ibm-sans">{outsideSkillList[i].description}</h1>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </>
   );
 }
