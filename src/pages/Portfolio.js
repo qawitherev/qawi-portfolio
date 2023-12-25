@@ -480,10 +480,12 @@ function OutsideSkill() {
 function DownloadResume() {
   return (
     <>
-      <a href="%PUBLIC_URL%/AbdulQawi_Resume_Dec2023.pdf" download>
+      <a href="https://raw.githubusercontent.com/qawitherev/qawi-portfolio/master/public/AbdulQawi_Resume_Dec2023.pdf" download>
         <button>Download resume</button>
       </a>
-      <h1>This is using %public_url%</h1>
+      <h1>This is using should be open in new tab</h1>
     </>
   );
 }
+
+//https://raw.githubusercontent.com/qawitherev/qawi-portfolio/master/public/AbdulQawi_Resume_Dec2023.pdf
