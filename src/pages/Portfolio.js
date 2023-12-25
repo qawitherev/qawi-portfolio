@@ -70,6 +70,7 @@ export function Portfolio() {
             {component}
           </div>
         ))}
+        <DownloadResume />
       </div>
     </>
   );
@@ -464,12 +465,24 @@ function OutsideSkill() {
                   src={outsideSkillList[i].imgSrc}
                 />
                 <div className="px-2" />
-                <h1 className="flex-grow text-justify font-ibm-sans">{outsideSkillList[i].description}</h1>
+                <h1 className="flex-grow text-justify font-ibm-sans">
+                  {outsideSkillList[i].description}
+                </h1>
               </div>
             </div>
           ))}
         </div>
       </div>
+    </>
+  );
+}
+
+function DownloadResume() {
+  return (
+    <>
+      <a href="/AbdulQawi_Resume_Dec2023.pdf" download>
+        <button>Download resume</button>
+      </a>
     </>
   );
 }
