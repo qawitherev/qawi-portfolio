@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/qawi-portfolio/static/css/main.9cb9ce9e.css",
-    "main.js": "/qawi-portfolio/static/js/main.33036f11.js",
+    "main.css": "/qawi-portfolio/static/css/main.ad9cf60f.css",
+    "main.js": "/qawi-portfolio/static/js/main.db299745.js",
     "static/js/787.7887d00c.chunk.js": "/qawi-portfolio/static/js/787.7887d00c.chunk.js",
     "index.html": "/qawi-portfolio/index.html",
-    "main.9cb9ce9e.css.map": "/qawi-portfolio/static/css/main.9cb9ce9e.css.map",
-    "main.33036f11.js.map": "/qawi-portfolio/static/js/main.33036f11.js.map",
+    "main.ad9cf60f.css.map": "/qawi-portfolio/static/css/main.ad9cf60f.css.map",
+    "main.db299745.js.map": "/qawi-portfolio/static/js/main.db299745.js.map",
     "787.7887d00c.chunk.js.map": "/qawi-portfolio/static/js/787.7887d00c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9cb9ce9e.css",
-    "static/js/main.33036f11.js"
+    "static/css/main.ad9cf60f.css",
+    "static/js/main.db299745.js"
   ]
 }
