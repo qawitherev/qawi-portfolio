@@ -79,7 +79,7 @@ export function Portfolio() {
 function SubBento(props) {
   const data = props.data;
   const { windowSize } = useContext(WindowSizeContext);
-  if (windowSize === "max-sm" || windowSize === "sm") {
+  if (windowSize === "max-sm" || windowSize === "sm" || windowSize === "md") {
     switch (data) {
       case 0:
         return (
@@ -480,10 +480,24 @@ function OutsideSkill() {
 function DownloadResume() {
   return (
     <>
-      <a href="https://raw.githubusercontent.com/qawitherev/qawi-portfolio/master/public/AbdulQawi_Resume_Dec2023.pdf" download>
-        <button>Download resume</button>
-      </a>
-      <h1>This is using should be open in new tab</h1>
+      <div className="flex w-full justify-center pb-10">
+        <div className=" flex max-sm:flex-col lg:flex-row max-sm:w-4/5 max-sm:items-center lg:w-1/2 lg:justify-around max-sm:gap-4 bg-green-300">
+          <a
+            href="https://raw.githubusercontent.com/qawitherev/qawi-portfolio/master/public/AbdulQawi_Resume_Dec2023.pdf"
+            download
+          >
+            <button className="p-5 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded-md max-sm:w-60 sm:w-60">
+              Download Resume
+            </button>
+          </a>
+          <button
+            onClick={() => window.open("mailto:qawitherev@gmail.com", "blank")}
+            className="p-5 bg-violet-500 hover:bg-violet-700 text-white font-bold rounded-md max-sm:w-60 sm:w-60"
+          >
+            Shoot me an email
+          </button>
+        </div>
+      </div>
     </>
   );
 }

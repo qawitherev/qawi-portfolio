@@ -175,7 +175,7 @@ export const outsideSkillList = [
       "https://s3-alpha.figma.com/hub/file/3152337111/0e0f44e4-8de2-49c9-b8f0-406ece8fd1b6-cover.png",
   },
   {
-    name: "Matter",
+    name: "Matter (CSA)",
     description: "Matter is a global, open-source standard that aims to simplify the smart home ecosystem by allowing internet-connected devices from different manufacturers to simply and securely communicate.",
     imgAlt: "matter-logo",
     imgSrc:
