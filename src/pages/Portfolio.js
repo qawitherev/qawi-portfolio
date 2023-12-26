@@ -79,7 +79,7 @@ export function Portfolio() {
 function SubBento(props) {
   const data = props.data;
   const { windowSize } = useContext(WindowSizeContext);
-  if (windowSize === "max-sm" || windowSize === "sm" || windowSize === "md") {
+  if (windowSize === "max-sm" || windowSize === "sm") {
     switch (data) {
       case 0:
         return (
@@ -481,7 +481,7 @@ function DownloadResume() {
   return (
     <>
       <div className="flex w-full justify-center pb-10">
-        <div className=" flex max-sm:flex-col lg:flex-row max-sm:w-4/5 max-sm:items-center lg:w-1/2 lg:justify-around max-sm:gap-4 bg-green-300">
+        <div className=" flex max-sm:flex-col lg:flex-row max-sm:w-4/5 max-sm:items-center lg:w-1/2 lg:justify-around max-sm:gap-4">
           <a
             href="https://raw.githubusercontent.com/qawitherev/qawi-portfolio/master/public/AbdulQawi_Resume_Dec2023.pdf"
             download
