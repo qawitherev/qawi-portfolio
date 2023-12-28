@@ -59,6 +59,14 @@ export const getMobileStack = (index) => {
         description:
           "Dart is a programming language developed by Google. It is known for its simplicity, speed, and versatility. Dart is often associated with the Flutter framework.",
       };
+    case 5:
+      return {
+        name: "Firebase",
+        alt: "firebase-logo",
+        src: "https://firebase.google.com/static/images/brand-guidelines/logo-logomark.png",
+        description:
+          "Google's platform for app development. Features real-time database, authentication, cloud functions, hosting. Simplifies backend tasks for scalable web and mobile applications.",
+      };
     default:
       return null;
   }
@@ -162,21 +170,24 @@ export const outsideSkillList = [
   },
   {
     name: "Xcode",
-    description: "Xcode is Apple's integrated development environment (IDE) for macOS and iOS app development. It offers a comprehensive set of tools, including code editing, debugging, interface design, and testing. Developers use Xcode to create high-quality applications for Apple's ecosystem.",
+    description:
+      "Xcode is Apple's integrated development environment (IDE) for macOS and iOS app development. It offers a comprehensive set of tools, including code editing, debugging, interface design, and testing. Developers use Xcode to create high-quality applications for Apple's ecosystem.",
     imgAlt: "xcode-logo",
     imgSrc:
       "https://w7.pngwing.com/pngs/505/718/png-transparent-xcode-macos-bigsur-icon-thumbnail.png",
   },
   {
     name: "Figma",
-    description: "Figma is a cloud-based design collaboration platform. It enables teams to create, prototype, and collaborate on user interfaces and user experiences in real-time. Figma supports seamless design workflows, version control, and interactive prototyping, fostering efficient collaboration among designers and stakeholders.",
+    description:
+      "Figma is a cloud-based design collaboration platform. It enables teams to create, prototype, and collaborate on user interfaces and user experiences in real-time. Figma supports seamless design workflows, version control, and interactive prototyping, fostering efficient collaboration among designers and stakeholders.",
     imgAlt: "figma-logo",
     imgSrc:
       "https://s3-alpha.figma.com/hub/file/3152337111/0e0f44e4-8de2-49c9-b8f0-406ece8fd1b6-cover.png",
   },
   {
     name: "Matter (CSA)",
-    description: "Matter is a global, open-source standard that aims to simplify the smart home ecosystem by allowing internet-connected devices from different manufacturers to simply and securely communicate.",
+    description:
+      "Matter is a global, open-source standard that aims to simplify the smart home ecosystem by allowing internet-connected devices from different manufacturers to simply and securely communicate.",
     imgAlt: "matter-logo",
     imgSrc:
       "https://seeklogo.com/images/M/matter-icon-logo-105B56921E-seeklogo.com.png",
@@ -222,3 +233,82 @@ export const getSocialSite = (index) => {
       };
   }
 };
+
+export const ProjectType = {
+  PROFESSIONAL: "professional",
+  ACADEMIC: "academic",
+  PERSONAL: "personal",
+};
+
+export const projectListV2 = [
+  {
+    type: ProjectType.PROFESSIONAL,
+    name: "AirTouch IR",
+    company: companyList[0].name,
+    description: "Lorem ipsum Airtouch IR",
+    role: "Mobile Developer",
+    stack: [
+      getMobileStack(1).src,
+      getMobileStack(2).src,
+      getMobileStack(4).src,
+    ],
+    githubLink: null,
+  },
+  {
+    type: ProjectType.ACADEMIC,
+    name: "LETAK",
+    company: null,
+    description: "lorem ipsum LETAK",
+    role: null,
+    stack: [
+      getMobileStack(0).src,
+      getMobileStack(3).src,
+      getMobileStack(5).src,
+    ],
+    githubLink: "https://github.com/qawitherev/LETAK",
+  },
+  {
+    type: ProjectType.ACADEMIC,
+    name: "Project Satria",
+    company: null,
+    description: "lorem ipsum Project Satria",
+    role: null,
+    stack: [
+      "https://upload.wikimedia.org/wikipedia/commons/e/e9/Opengl-logo.svg",
+      "https://w7.pngwing.com/pngs/46/626/png-transparent-c-logo-the-c-programming-language-computer-icons-computer-programming-source-code-programming-miscellaneous-template-blue.png",
+    ],
+    githubLink: "https://github.com/qawitherev/LETAK",
+  },
+  {
+    type: ProjectType.PERSONAL,
+    name: "Pomodoro Timer",
+    company: null,
+    description: "lorem ipsum Pomodoro Timer",
+    role: null,
+    stack: [getMobileStack(2).src, getMobileStack(4).src],
+    githubLink: "https://github.com/qawitherev/pomodoroBloc",
+  },
+  {
+    type: ProjectType.PERSONAL,
+    name: "Matter Commissioning",
+    company: null,
+    description: "lorem ipsum Matter Commissioning",
+    role: null,
+    stack: [
+      getMobileStack(1).src,
+      getMobileStack(2).src,
+      getMobileStack(4).src,
+      outsideSkillList[5].imgSrc,
+    ],
+    githubLink: "https://github.com/qawitherev/MatterCommissioning",
+  },
+  {
+    type: ProjectType.PERSONAL,
+    name: "ToDo CRUD",
+    company: null,
+    description: "lorem ipsum ToDo CRUD",
+    role: null,
+    stack: [getWebInfo(2).src],
+    githubLink: "https://github.com/qawitherev/todolist2",
+  },
+];

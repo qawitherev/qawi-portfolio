@@ -7,7 +7,10 @@ import {
   projectList,
   outsideSkillList,
   getSocialSite,
+  projectListV2,
+  ProjectType,
 } from "../repo/Data";
+import { Heading2, Heading3 } from "../components/TextComponent";
 
 export function Portfolio() {
   const { windowSize } = useContext(WindowSizeContext);
@@ -36,6 +39,7 @@ export function Portfolio() {
     { component: <WebStack />, refIndex: [2, 5] },
     { component: <CompanyWork />, refIndex: [3, 0] },
     { component: <ProjectNumber />, refIndex: [4, 1] },
+    { component: <ProjectNumberV2 />, refIndex: [5, 6] },
     { component: <OutsideSkill />, refIndex: [5, 6] },
   ];
 
@@ -205,7 +209,7 @@ function MobileStackSubBento() {
         <h1>Mobile Development</h1>
         <div className=" py-3" />
         <div className="grid max-sm:grid-cols-3 max-md:grid-cols-3 md:grid-rows-3 md:grid-cols-2 gap-4 overflow-hidden">
-          {[...Array(5)].map((_, i) => (
+          {[...Array(6)].map((_, i) => (
             <img
               key={i}
               className=" h-12 w-12 rounded-lg"
@@ -339,7 +343,7 @@ function MobileStack() {
         </h1>
 
         <div className=" grid sm:grid-cols-1 md:grid-cols-2 gap-3">
-          {[...Array(5)].map((_, i) => (
+          {[...Array(6)].map((_, i) => (
             <div key={i} className=" flex flex-col bg-white rounded-xl p-5">
               <h1 className="font-bold">{getMobileStack(i).name}</h1>
               <div className="py-1" />
@@ -446,6 +450,107 @@ function ProjectNumber() {
   );
 }
 
+function ProjectNumberV2() {
+  const { windowSize } = useContext(WindowSizeContext);
+  const isSmallScreen = windowSize === "max-sm" || windowSize === "sm";
+  const professionalList = projectListV2.filter(
+    (project) => project.type === ProjectType.PROFESSIONAL
+  );
+  const academicList = projectListV2.filter(
+    (project) => project.type === ProjectType.ACADEMIC
+  );
+  const personalList = projectListV2.filter(
+    (project) => project.type === ProjectType.PERSONAL
+  );
+  console.log("qawi1:", professionalList);
+  const SmallScreen = () => {
+    return (
+      <>
+        <h1>Small Screen</h1>
+      </>
+    );
+  };
+
+  const BigScreen = () => {
+    return (
+      <>
+        <div className="flex flex-col justify-start">
+          {professionalList.length !== 0 ? (
+            <Heading2 data={"Professional Gig"} />
+          ) : null}
+          <div className="grid grid-cols-3 gap-4 mb-3">
+            {professionalList.map((_, i) => (
+              <BigScreenCard key={i} project={professionalList[i]} />
+            ))}
+          </div>
+          {academicList.length !== 0 ? (
+            <Heading2 data={"Academic Project"} />
+          ) : null}
+          <div className="grid grid-cols-3 gap-4 mb-3">
+            {academicList.map((_, i) => (
+              <BigScreenCard key={i} project={academicList[i]} />
+            ))}
+          </div>
+          {personalList.length !== 0 ? (
+            <Heading2 data={"Personal Project"} />
+          ) : null}
+          <div className="grid grid-cols-3 gap-4 mb-3">
+            {personalList.map((_, i) => (
+              <BigScreenCard key={i} project={personalList[i]} />
+            ))}
+          </div>
+        </div>
+      </>
+    );
+  };
+
+  const BigScreenCard = (props) => {
+    const project = props.project;
+    return (
+      <>
+        <div className="row-span-1 col-span-1 bg-white rounded-lg flex flex-col p-5 ">
+          <Heading3 data={project.name} />
+          {project.company !== null ? (
+            <Heading3 data={project.company} />
+          ) : null}
+          <Heading3 data={project.description} />
+          {project.role !== null ? <Heading3 data={project.role} /> : null}
+
+          <div className="flex justify-start flex-row mb-1">
+            {project.stack.map((_, i) => (
+              <img
+                className="h-6 w-6 rounded-md mr-1"
+                key={i}
+                alt={project.name + "logo"}
+                src={project.stack[i]}
+              />
+            ))}
+          </div>
+          {project.githubLink !== null ? (
+            <div className="flex justify-end">
+              <img
+                className="h-7 w-7 rounded-lg"
+                alt="github-logo"
+                src="https://cdn2.iconfinder.com/data/icons/font-awesome/1792/github-square-512.png"
+              />
+            </div>
+          ) : null}
+        </div>
+      </>
+    );
+  };
+
+  return (
+    <>
+      <h1 className="text-3xl px-7">Projects Done</h1>
+      <div className="my-2"></div>
+      <div className="px-5 mb-10">
+        {isSmallScreen ? <SmallScreen /> : <BigScreen />}
+      </div>
+    </>
+  );
+}
+
 function OutsideSkill() {
   return (
     <>
@@ -481,18 +586,18 @@ function DownloadResume() {
   return (
     <>
       <div className="flex w-full justify-center pb-10">
-        <div className=" flex max-sm:flex-col lg:flex-row max-sm:w-4/5 max-sm:items-center lg:w-1/2 lg:justify-around max-sm:gap-4">
+        <div className=" flex max-sm:flex-col xl:flex-row max-sm:w-4/5 max-sm:items-center lg:w-1/2 lg:justify-around max-sm:gap-4">
           <a
             href="https://raw.githubusercontent.com/qawitherev/qawi-portfolio/master/public/AbdulQawi_Resume_Dec2023.pdf"
             download
           >
-            <button className="p-5 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded-md max-sm:w-60 sm:w-60">
+            <button className="p-5 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded-md w-56">
               Download Resume
             </button>
           </a>
           <button
             onClick={() => window.open("mailto:qawitherev@gmail.com", "blank")}
-            className="p-5 bg-violet-500 hover:bg-violet-700 text-white font-bold rounded-md max-sm:w-60 sm:w-60"
+            className="p-5 bg-violet-500 hover:bg-violet-700 text-white font-bold rounded-md w-56"
           >
             Shoot me an email
           </button>
