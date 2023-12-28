@@ -195,8 +195,9 @@ function ProjectNumberSubBento() {
   return (
     <>
       <div className="flex flex-col items-center justify-center h-full">
-        <h1>{projectList.length}</h1>
+        <h1>{projectListV2.length}</h1>
         <h1>Projects done</h1>
+        <p className="text-xs" >And Counting!</p>
       </div>
     </>
   );
@@ -462,11 +463,31 @@ function ProjectNumberV2() {
   const personalList = projectListV2.filter(
     (project) => project.type === ProjectType.PERSONAL
   );
-  console.log("qawi1:", professionalList);
   const SmallScreen = () => {
     return (
       <>
-        <h1>Small Screen</h1>
+        <div className="flex flex-col" >
+        {professionalList.length !== 0 ? (
+            <Heading2 data={"Professional Gig"} />
+          ) : null}
+          {professionalList.map((_, i)=>(
+            <ProjectCard key={i} project={professionalList[i]} />
+          ))}
+          <div className="my-1" />
+          {academicList.length !== 0 ? (
+            <Heading2 data={"Academic Projects"} />
+          ) : null}
+          {academicList.map((_, i)=>(
+            <ProjectCard key={i} project={academicList[i]} />
+          ))}
+          <div className="my-1" />
+          {personalList.length !== 0 ? (
+            <Heading2 data={"Personal Projects"} />
+          ) : null}
+          {personalList.map((_, i)=>(
+            <ProjectCard key={i} project={personalList[i]} />
+          ))}
+        </div>
       </>
     );
   };
@@ -480,23 +501,23 @@ function ProjectNumberV2() {
           ) : null}
           <div className="grid grid-cols-3 gap-4 mb-3">
             {professionalList.map((_, i) => (
-              <BigScreenCard key={i} project={professionalList[i]} />
+              <ProjectCard key={i} project={professionalList[i]} />
             ))}
           </div>
           {academicList.length !== 0 ? (
-            <Heading2 data={"Academic Project"} />
+            <Heading2 data={"Academic Projects"} />
           ) : null}
           <div className="grid grid-cols-3 gap-4 mb-3">
             {academicList.map((_, i) => (
-              <BigScreenCard key={i} project={academicList[i]} />
+              <ProjectCard key={i} project={academicList[i]} />
             ))}
           </div>
           {personalList.length !== 0 ? (
-            <Heading2 data={"Personal Project"} />
+            <Heading2 data={"Personal Projects"} />
           ) : null}
           <div className="grid grid-cols-3 gap-4 mb-3">
             {personalList.map((_, i) => (
-              <BigScreenCard key={i} project={personalList[i]} />
+              <ProjectCard key={i} project={personalList[i]} />
             ))}
           </div>
         </div>
@@ -504,30 +525,37 @@ function ProjectNumberV2() {
     );
   };
 
-  const BigScreenCard = (props) => {
+  const ProjectCard = (props) => {
     const project = props.project;
     return (
       <>
         <div className="row-span-1 col-span-1 bg-white rounded-lg flex flex-col p-5 ">
-          <Heading3 data={project.name} />
+          <Heading3 data={"Name: " + project.name} />
           {project.company !== null ? (
-            <Heading3 data={project.company} />
+            <Heading3 data={"Company: " + project.company} />
           ) : null}
-          <Heading3 data={project.description} />
-          {project.role !== null ? <Heading3 data={project.role} /> : null}
-
-          <div className="flex justify-start flex-row mb-1">
-            {project.stack.map((_, i) => (
-              <img
-                className="h-6 w-6 rounded-md mr-1"
-                key={i}
-                alt={project.name + "logo"}
-                src={project.stack[i]}
-              />
-            ))}
+          <Heading3 data={"Description: " + project.description} />
+          {project.role !== null ? (
+            <Heading3 data={"Role: " + project.role} />
+          ) : null}
+          <div className="flex">
+            <Heading3 data="Stacks: " />
+            <div className="mr-2" />
+            <div className="flex justify-start flex-row mb-1">
+              {project.stack.map((_, i) => (
+                <img
+                  className="h-6 w-6 rounded-md mr-1"
+                  key={i}
+                  alt={project.name + "logo"}
+                  src={project.stack[i]}
+                />
+              ))}
+            </div>
           </div>
           {project.githubLink !== null ? (
-            <div className="flex justify-end">
+            <div className="flex">
+            <Heading3 data='GitHub Repo: ' />
+            <div className="mr-2" />
               <img
                 className="h-7 w-7 rounded-lg"
                 alt="github-logo"
