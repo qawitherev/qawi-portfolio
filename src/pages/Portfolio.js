@@ -197,7 +197,7 @@ function ProjectNumberSubBento() {
       <div className="flex flex-col items-center justify-center h-full">
         <h1>{projectListV2.length}</h1>
         <h1>Projects done</h1>
-        <p className="text-xs" >And Counting!</p>
+        <p className="text-xs">And Counting!</p>
       </div>
     </>
   );
@@ -463,28 +463,34 @@ function ProjectNumberV2() {
   const personalList = projectListV2.filter(
     (project) => project.type === ProjectType.PERSONAL
   );
+
+  const handleOnClick = (link) => {
+    console.log('qawi1: handleOnClick')
+    window.open(link, "blank");
+  };
+
   const SmallScreen = () => {
     return (
       <>
-        <div className="flex flex-col" >
-        {professionalList.length !== 0 ? (
+        <div className="flex flex-col">
+          {professionalList.length !== 0 ? (
             <Heading2 data={"Professional Gig"} />
           ) : null}
-          {professionalList.map((_, i)=>(
+          {professionalList.map((_, i) => (
             <ProjectCard key={i} project={professionalList[i]} />
           ))}
           <div className="my-1" />
           {academicList.length !== 0 ? (
             <Heading2 data={"Academic Projects"} />
           ) : null}
-          {academicList.map((_, i)=>(
+          {academicList.map((_, i) => (
             <ProjectCard key={i} project={academicList[i]} />
           ))}
           <div className="my-1" />
           {personalList.length !== 0 ? (
             <Heading2 data={"Personal Projects"} />
           ) : null}
-          {personalList.map((_, i)=>(
+          {personalList.map((_, i) => (
             <ProjectCard key={i} project={personalList[i]} />
           ))}
         </div>
@@ -529,7 +535,7 @@ function ProjectNumberV2() {
     const project = props.project;
     return (
       <>
-        <div className="row-span-1 col-span-1 bg-white rounded-lg flex flex-col p-5 ">
+        <div className="row-span-1 col-span-1 bg-white rounded-lg flex flex-col p-5 mb-4">
           <Heading3 data={"Name: " + project.name} />
           {project.company !== null ? (
             <Heading3 data={"Company: " + project.company} />
@@ -552,17 +558,21 @@ function ProjectNumberV2() {
               ))}
             </div>
           </div>
-          {project.githubLink !== null ? (
-            <div className="flex">
-            <Heading3 data='GitHub Repo: ' />
-            <div className="mr-2" />
-              <img
-                className="h-7 w-7 rounded-lg"
-                alt="github-logo"
-                src="https://cdn2.iconfinder.com/data/icons/font-awesome/1792/github-square-512.png"
-              />
-            </div>
-          ) : null}
+          <div className="hover:cursor-pointer" onClick={()=>handleOnClick(project.githubLink)}>
+            {project.githubLink !== null ? (
+              <div className="flex">
+                <Heading3 data="GitHub Repo: " />
+                <div className="mr-2" />
+                <div className="transform transition-transform hover:scale-110" >
+                  <img
+                    className="h-7 w-7 rounded-lg hover:pointer"
+                    alt="github-logo"
+                    src="https://cdn2.iconfinder.com/data/icons/font-awesome/1792/github-square-512.png"
+                  />
+                </div>
+              </div>
+            ) : null}
+          </div>
         </div>
       </>
     );
