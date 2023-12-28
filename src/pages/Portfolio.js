@@ -4,7 +4,6 @@ import {
   companyList,
   getMobileStack,
   getWebInfo,
-  projectList,
   outsideSkillList,
   getSocialSite,
   projectListV2,
@@ -39,19 +38,19 @@ export function Portfolio() {
     { component: <WebStack />, refIndex: [2, 5] },
     { component: <CompanyWork />, refIndex: [3, 0] },
     { component: <ProjectNumber />, refIndex: [4, 1] },
-    { component: <ProjectNumberV2 />, refIndex: [5, 6] },
+    { component: <ProjectNumber />, refIndex: [5, 6] },
     { component: <OutsideSkill />, refIndex: [5, 6] },
   ];
 
   return (
     <>
-      <div className="flex flex-col bg-gray-100">
+      <div className="flex flex-col bg-theme-shade-1">
         <div className="grid auto-rows-[200px] sm:grid-cols-1 md:grid-cols-6 gap-3 p-5">
           {[...Array(7)].map((_, i) => (
             <div
               key={i}
               onClick={() => scrollToComponent(i)}
-              className={`rounded-xl bg-white overflow-clip
+              className={`rounded-xl bg-theme-shade-2 overflow-clip
                 ${i === 0 ? "md:col-span-3 md:row-span-1" : ""}
               ${i === 1 ? "md:col-span-1 md:row-span-1" : ""}
               ${[2, 5].includes(i) ? "md:col-span-2 md:row-span-2" : ""}
@@ -345,7 +344,7 @@ function MobileStack() {
 
         <div className=" grid sm:grid-cols-1 md:grid-cols-2 gap-3">
           {[...Array(6)].map((_, i) => (
-            <div key={i} className=" flex flex-col bg-white rounded-xl p-5">
+            <div key={i} className=" flex flex-col bg-theme-shade-2 rounded-xl p-5">
               <h1 className="font-bold">{getMobileStack(i).name}</h1>
               <div className="py-1" />
               <div className=" flex justify-center">
@@ -376,7 +375,7 @@ function WebStack() {
         </h1>
         <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-3">
           {[...Array(4)].map((_, i) => (
-            <div key={i} className="flex flex-col bg-white rounded-xl p-5">
+            <div key={i} className="flex flex-col bg-theme-shade-2 rounded-xl p-5">
               <h1 className="font-bold">{getWebInfo(i).name}</h1>
               <div className="py-1" />
               <div className=" flex justify-center">
@@ -410,7 +409,7 @@ function CompanyWork() {
             <div
               key={i}
               onClick={() => window.open(companyList[i].url, "blank")}
-              className=" transition cursor-pointer hover:scale-95 rounded-xl bg-white col-span-1 row-span-1 flex flex-col items-center justify-center h-full p-5"
+              className=" transition cursor-pointer hover:scale-95 rounded-xl bg-theme-shade-2 col-span-1 row-span-1 flex flex-col items-center justify-center h-full p-5"
             >
               <img
                 className="w-1/2"
@@ -428,30 +427,6 @@ function CompanyWork() {
 }
 
 function ProjectNumber() {
-  return (
-    <>
-      <div className="flex flex-col justify-start px-5 mb-10">
-        <h1 className=" mb-2 px-2 text-3xl">Projects Done</h1>
-        <div className="grid max-sm:grid-cols-1 md:grid-cols-2 gap-4">
-          {[...Array(projectList.length)].map((_, i) => (
-            <div
-              key={i}
-              className="bg-white p-5 rounded-lg flex flex-col justify-center"
-            >
-              <h1 className="mb-2 font-ibm-sans font-bold">
-                {projectList[i].name}
-              </h1>
-              <h1 className="font-ibm-sans">{projectList[i].description}</h1>
-              <h1 className="font-ibm-sans">{projectList[i].company}</h1>
-            </div>
-          ))}
-        </div>
-      </div>
-    </>
-  );
-}
-
-function ProjectNumberV2() {
   const { windowSize } = useContext(WindowSizeContext);
   const isSmallScreen = windowSize === "max-sm" || windowSize === "sm";
   const professionalList = projectListV2.filter(
@@ -535,7 +510,7 @@ function ProjectNumberV2() {
     const project = props.project;
     return (
       <>
-        <div className="row-span-1 col-span-1 bg-white rounded-lg flex flex-col p-5 mb-4">
+        <div className="row-span-1 col-span-1 bg-theme-shade-2 rounded-lg flex flex-col p-5 mb-4">
           <Heading3 data={"Name: " + project.name} />
           {project.company !== null ? (
             <Heading3 data={"Company: " + project.company} />
@@ -598,7 +573,7 @@ function OutsideSkill() {
         </h1>
         <div className="grid max-sm:grid-cols-1 md:grid-cols-2 gap-4">
           {[...Array(outsideSkillList.length)].map((_, i) => (
-            <div key={i} className="flex flex-col bg-white rounded-lg p-5">
+            <div key={i} className="flex flex-col bg-theme-shade-2 rounded-lg p-5">
               <h1 className="font-bold">{outsideSkillList[i].name}</h1>
               <div className="py-1" />
               <div className="flex flex-row justify-center">
@@ -629,13 +604,13 @@ function DownloadResume() {
             href="https://raw.githubusercontent.com/qawitherev/qawi-portfolio/master/public/AbdulQawi_Resume_Dec2023.pdf"
             download
           >
-            <button className="p-5 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded-md w-56">
+            <button className="p-5 bg-theme-shade-3 hover:bg-theme-shade-4 text-white font-bold rounded-md w-56">
               Download Resume
             </button>
           </a>
           <button
             onClick={() => window.open("mailto:qawitherev@gmail.com", "blank")}
-            className="p-5 bg-violet-500 hover:bg-violet-700 text-white font-bold rounded-md w-56"
+            className="p-5 bg-theme-shade-3 hover:bg-theme-shade-4 text-white font-bold rounded-md w-56"
           >
             Shoot me an email
           </button>

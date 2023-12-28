@@ -116,33 +116,6 @@ export const getWebInfo = (index) => {
   }
 };
 
-export const projectList = [
-  {
-    name: "project1",
-    description: "project description",
-    company: companyList[0].name,
-    role: "Mobile Developer",
-  },
-  {
-    name: "project2",
-    description: "project description",
-    company: companyList[1].name,
-    role: "Mobile Developer",
-  },
-  {
-    name: "project3",
-    description: "project description",
-    company: companyList[1].name,
-    role: "Mobile Developer",
-  },
-  {
-    name: "project4",
-    description: "project description",
-    company: companyList[1].name,
-    role: "Mobile Developer",
-  },
-];
-
 export const outsideSkillList = [
   {
     name: "Azure DevOps",
